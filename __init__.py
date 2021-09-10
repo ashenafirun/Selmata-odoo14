@@ -1,19 +1,9 @@
-﻿# Copyright 2019 VentorTech OU
-# Part of Ventor modules. See LICENSE file for full copyright and licensing details.
+# -*- coding: utf-8 -*-
 
 from . import models
+from . import hooks
+from .hooks import pre_init_hook
+from .hooks import post_init_hook
 
 
-def _auto_fill_settings(cr, registry):
-    """
-    This hook updates Ventor Settings in Operation Types
-    """
 
-    cr.execute(
-        """
-        UPDATE stock_picking_type
-        SET
-            change_destination_location = True,
-            show_next_product = CASE code when 'incoming' THEN False ELSE True END
-        """
-    )
