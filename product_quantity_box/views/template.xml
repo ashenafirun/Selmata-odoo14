@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo> 
+	<template id="assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss" href="/product_quantity_box/static/src/scss/product_custom.scss" />
+        </xpath>
+    </template>
+		<template id="product_show_qty_box" inherit_id="website_sale.products_add_to_cart" customize_show="True" active="False" name="Show Qty Box">
+		  <xpath expr="//input[@name='product_id']" position="inside">
+			<t t-if="request.website.viewref('website_sale.products_add_to_cart').active">
+			  	<t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()"/>
+					<t t-if="product_variant_id">
+						<input type="text"  data-min="1" name="add_qty" value="1" />
+					</t>
+				</t>
+		  </xpath>
+		</template>  
+</odoo>

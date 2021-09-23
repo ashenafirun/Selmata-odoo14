@@ -1,0 +1,30 @@
+
+.oe_product_cart {
+    .o_wsale_product_btn {
+        input[type="text"] {
+            width: 38px;
+            height: 38px;
+            border-radius:3px;
+            text-align:center;
+            display:inline-block;
+            vertical-align:middle;
+            font-size: 13px;
+            border:1px solid #ccc;
+            padding: 2px 0;
+            transform: scale(0);
+            transition: transform ease 200ms 0s;
+            .o_wsale_layout_list & {
+                transform: scale(1);
+                margin-bottom: 5px;
+            }
+        }
+    }
+    &:hover {
+        .o_wsale_product_btn {
+            input[type="text"] {
+                transform: scale(1);
+            }
+        }
+
+    }
+}
